@@ -66,7 +66,7 @@ export const AnimatedText = ({ text, el: Wrapper = "p", className, once = true, 
 
   return (
     <Wrapper className={className}>
-      <span attr="3" className="sr-only">{textArray.join(" ")}</span>
+      <span className="sr-only">{textArray.join(" ")}</span>
       <motion.span
         ref={ref}
         initial="hidden"
