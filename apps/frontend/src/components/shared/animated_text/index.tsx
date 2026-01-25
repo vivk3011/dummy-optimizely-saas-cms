@@ -66,7 +66,7 @@ export const AnimatedText = ({ text, el: Wrapper = "p", className, once = true, 
 
   return (
     <Wrapper className={className}>
-      <span className="sr-only text-red-500">{textArray.join(" ")}</span>
+      <span className="sr-only">{textArray.join(" ")}</span>
       <motion.span
         ref={ref}
         initial="hidden"
@@ -82,7 +82,7 @@ export const AnimatedText = ({ text, el: Wrapper = "p", className, once = true, 
             {line.split(" ").map((word, wordIndex) => (
               <span className="inline-block" key={`${word}-${wordIndex}`}>
                 {word.split("").map((char, charIndex) => (
-                  <motion.span key={`${char}-${charIndex}`} className="inline-block text-red-500" viewport={{ once: true }} variants={animation}>
+                  <motion.span key={`${char}-${charIndex}`} className="inline-block" viewport={{ once: true }} variants={animation}>
                     {char}
                   </motion.span>
                 ))}
