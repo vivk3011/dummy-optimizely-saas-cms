@@ -37,8 +37,8 @@ const {
     client: (_, scope) => {
         const client = createClient(undefined, undefined, {
             nextJsFetchDirectives: true,
-            cache: true,
-            queryCache: true,
+            cache: false,
+            queryCache: false,
         })
         if (scope === 'request' && draftMode().isEnabled) {
             client.updateAuthentication(AuthMode.HMAC)
@@ -51,7 +51,7 @@ const {
 // Configure the Next.JS route handling for the pages
 export const dynamic = "error"; // Throw an error when the [[...path]] route becomes dynamic, as this will seriously hurt site performance
 export const dynamicParams = true; // Allow new pages to be resolved without rebuilding the site
-export const revalidate = 600; // Keep the cache untill manually revalidated using the Webhook
+export const revalidate = 60; // Keep the cache untill manually revalidated using the Webhook
 
 // Export page & helper methods
 export { generateMetadata, generateStaticParams };
